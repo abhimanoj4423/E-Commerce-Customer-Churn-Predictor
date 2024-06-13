@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          background: linear-gradient(to right, #150f7a, #1aaad5);
+          background-size: 200% 200%;
+          animation: flowing-gradient 10s ease infinite;
+        }
+
+        @keyframes flowing-gradient {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 200vh;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 50px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        form {
+            width: 800px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        label {
+            color: #fff;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+
+        button {
+            grid-column: span 2;
+            width: 100%;
+            padding: 10px;
+            background: #060244;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Churn Predictor</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="Tenure">Tenure:</label>
+                <input type="number" id="Tenure" name="Tenure" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Complain">Complain:</label>
+                <select id="Complain" name="Complain" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="OrderCount">Order Count:</label>
+                <input type="number" id="OrderCount" name="OrderCount" required>
+            </div>
+
+            <div class="form-group">
+                <label for="CashbackAmount">Cashback Amount:</label>
+                <input type="number" id="CashbackAmount" name="CashbackAmount" required>
+            </div>
+
+            <div class="form-group">
+                <label for="PreferedOrderCat">Prefered Order Catergory:</label>
+                <select id="PreferedOrderCat" name="PreferedOrderCat" required>
+                    <option value='Fashion'>Fashion</option>
+                    <option value='Grocery'>Grocery</option>
+                    <option value='Laptop & Accessory'>Laptop & Accessory</option>
+                    <option value='Mobile Phone'>Mobile Phone</option>
+                    <option value='Others'>Others</option>
+                </select>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="MaritalStatus">Marital Status:</label>
+                <select id="MaritalStatus" name="MaritalStatus" required>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Married">Married</option>
+                    <option value="Single">Single</option>
+                </select>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>

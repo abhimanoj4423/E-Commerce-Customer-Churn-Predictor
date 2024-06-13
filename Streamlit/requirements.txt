@@ -1,0 +1,9 @@
+joblib
+pandas==2.1.1
+streamlit
+streamlit_option_menu
+sklearn
+ydata_profiling 
+streamlit_ydata_profiling
+plotly
+seaborn
